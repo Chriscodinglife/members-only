@@ -1,0 +1,31 @@
+<h1> 
+    Hi 
+    <% if @user.first_name %>
+        <%= @user.first_name %>!
+    <% else %>
+        there!
+    <% end %>
+    
+</h1>
+
+
+<% if user_signed_in? %>
+    <p>What would you like to do?</p>
+    <ul>
+        <li>
+            <%= link_to "Change Email or Password", edit_user_registration_path %>
+        </li>
+        <li>
+            <%= link_to "Change Name", edit_user_path(current_user.id) %>
+        </li>
+        <li>
+            <%= link_to "See All Posts", posts_path %>
+        </li>
+        <li>
+            <%= link_to "Add a post", new_post_path %>
+        </li>
+    </ul>
+    
+    
+<% end %>
+

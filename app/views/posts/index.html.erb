@@ -1,0 +1,15 @@
+<h2>All the posts in this bitch</h2>
+<%= link_to "Create New Post", new_post_path %>
+
+<ul>
+    <% @posts.each do |post| %>
+    <li>
+        <h1><%= post.title %></h1>
+        <p><%= post.body %> </p>
+        <% if user_signed_in? %>
+            <p>Posted by: <%= User.find(post.user_id).first_name || "Anonymous" %> </p>
+        <% end %>
+    </li>
+    <% end %>
+</ul>
+
